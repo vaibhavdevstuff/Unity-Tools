@@ -21,15 +21,15 @@ public class CopyComponents : EditorWindow
     [MenuItem("Tools/Domino Code/Copy Components")]
     public static void CopyComponentWindow()
     {
-        const int width = 500;
-        const int height = 600;
+        CopyComponents window = (CopyComponents)EditorWindow.GetWindow(typeof(CopyComponents));
 
-        var x = (Screen.currentResolution.width - width) / 2;
-        var y = (Screen.currentResolution.height - height) / 2;
-
-        GetWindow<CopyComponents>("DC Tools").position = new Rect(x, y, width, height);
-
+        window.minSize = new Vector2(350, 340);
+        window.titleContent = new GUIContent("DC Tools");
+        window.Show();
     }
+
+
+
 
     private void OnGUI()
     {
@@ -42,9 +42,9 @@ public class CopyComponents : EditorWindow
 
         if (from != null)
         {
-            if(_checkFrom != from)
+            if (_checkFrom != from)
             {
-                if(componentsList.Count > 0) componentsList.Clear();
+                if (componentsList.Count > 0) componentsList.Clear();
                 _checkFrom = from;
             }
 
@@ -67,17 +67,17 @@ public class CopyComponents : EditorWindow
 
         EditorGUILayout.Space();
 
-        if(componentsList.Count > 0 && to != null)
+        if (componentsList.Count > 0 && to != null)
         {
             skipSameComponents = EditorGUILayout.Toggle("Skip Same Components", skipSameComponents);
             copyWithoutValues = EditorGUILayout.Toggle("Copy without Values", copyWithoutValues);
-            
+
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Copy All Components"))
                 CopyAllComponents();
         }
-        
+
 
     }
 
@@ -102,7 +102,7 @@ public class CopyComponents : EditorWindow
     {
         if (from == null)
         {
-            if(componentsList.Count > 0)
+            if (componentsList.Count > 0)
                 componentsList.Clear();
 
             return;
@@ -137,7 +137,7 @@ public class CopyComponents : EditorWindow
                 to.AddComponent(type);
 
         }
-            
+
     }
 
 
