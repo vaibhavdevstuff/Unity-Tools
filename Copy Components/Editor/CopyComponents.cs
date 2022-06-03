@@ -12,11 +12,14 @@ public class CopyComponents : EditorWindow
     private bool skipSameComponents;
     [Tooltip("If FALSE copy only components, If TRUE copy componet values too")]
     private bool copyWithoutValues;
+    private bool copyTag;
+    private bool copyLayer;
 
     private Component[] components;
     public List<Component> componentsList = new List<Component>();
 
     private GameObject _checkFrom;
+
 
     [MenuItem("Tools/Domino Code/Copy Components")]
     public static void CopyComponentWindow()
@@ -71,6 +74,8 @@ public class CopyComponents : EditorWindow
         {
             skipSameComponents = EditorGUILayout.Toggle("Skip Same Components", skipSameComponents);
             copyWithoutValues = EditorGUILayout.Toggle("Copy without Values", copyWithoutValues);
+            copyTag = EditorGUILayout.Toggle("Copy Tag", copyTag);
+            copyLayer = EditorGUILayout.Toggle("Copy Layer", copyLayer);
 
             EditorGUILayout.Space();
 
@@ -121,6 +126,10 @@ public class CopyComponents : EditorWindow
 
     private void CopyAllComponents()
     {
+        if (copyTag) to.tag = from.tag;
+
+        if (copyLayer) to.layer = from.layer;
+
         foreach (Component comp in componentsList)
         {
             System.Type type = comp.GetType();
