@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+[ExecuteInEditMode]
 public class DrawEasyGizmo : MonoBehaviour
 {
     #region Variables
@@ -170,7 +170,6 @@ public class DrawEasyGizmo : MonoBehaviour
 public enum GizmosType { Collider, Custom }
 public enum GizmoShape { Cube, WireCube, Sphere, WireSphere, Ray, Line }
 public enum RayDirection { forward, backward, left, right, up, down }
-
 public enum AddCollider { Box, Shere, Capsule, Mesh}
 
 #endregion
