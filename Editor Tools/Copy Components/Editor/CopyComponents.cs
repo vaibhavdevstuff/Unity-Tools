@@ -21,7 +21,7 @@ public class CopyComponents : EditorWindow
     private GameObject _checkFrom;
 
 
-    [MenuItem("Tools/Domino Code/Copy Components")]
+    [MenuItem("Tools/DominoCode/Copy Components")]
     public static void CopyComponentWindow()
     {
         CopyComponents window = (CopyComponents)EditorWindow.GetWindow(typeof(CopyComponents));

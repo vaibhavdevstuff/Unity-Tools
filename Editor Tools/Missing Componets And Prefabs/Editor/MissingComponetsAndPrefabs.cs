@@ -8,7 +8,7 @@ namespace DominoCode
 {
     public class MissingComponetsAndPrefabs
     {
-        [MenuItem("Tools/Domino Code/Log Missing Components and Prefabs")]
+        [MenuItem("Tools/DominoCode/Log Missing Components and Prefabs")]
         public static void LogMissingComponentsAndPrefabs()
         {
             //Clear the previous missing data
@@ -17,13 +17,13 @@ namespace DominoCode
             //Start From getting all the root objects in Scene
             GameObject[] rootGO = SceneManager.GetActiveScene().GetRootGameObjects();
 
-            //Find Missing Refence in Root Objects and their Childrens
+            //Find Missing Reference in Root Objects and their Childrens
             foreach (GameObject go in rootGO)
             {
                 FindMissingOne(go);
             }
 
-            //Total Missing Refence Found
+            //Total Missing Reference Found
             Debug.Log("Total Missing: " + missingDataResult.Count);
 
             //Log All Missing Prefabs & Components 
@@ -40,7 +40,7 @@ namespace DominoCode
         /// <summary>
         /// Find Missing Reference
         /// </summary>
-        /// <param name="go">GameObject to check Missing Refence</param>
+        /// <param name="go">GameObject to check Missing Reference</param>
         /// <param name="path">path of this GameObject</param>
         public static void FindMissingOne(GameObject go, string path = "")
         {
@@ -79,7 +79,7 @@ namespace DominoCode
                 }
                 else
                 {
-                    //Again Check for all missing refence in child taking current child as main Object
+                    //Again Check for all missing Reference in child taking current child as main Object
                     FindMissingOne(childObject, currentPath);
                 }
             }
